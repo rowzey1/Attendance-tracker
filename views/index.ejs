@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rapper Names</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Best Rappers of All Time</h1>
+    <p>List your favorite rappers by their Stage names, and Birth names.
+        Vote to keep your favorites at the top.
+    </p>
+    <table class="rappers">
+        <thead>
+          <tr>
+            <th>Stage Name</th>
+            <th>Birth Name</th>
+            <th>Upvote Count</th>
+            <th>Thumbs Up</th>
+            <th>DownvoteCount</th>
+            <th>Thumbs Down</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < info.length; i++) { %>
+            <tr class="rapper">
+              <td><%= info[i].stageName %></td>
+              <td><%= info[i].birthName %></td>
+              <td><%= info[i].thumbUp %></td>
+              <td><i class="fa fa-thumbs-up" aria-hidden="true"></i></td>
+              <td><%= info[i].thumbDown %></td>
+              <td><i class="fa fa-thumbs-down" aria-hidden="true"></i></td>
+              <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    <h2>Add A Rapper:</h2>
+    <form action="/addRapper" method="POST">
+      <input type="text" placeholder="Stage Name" name="stageName" />
+      <input type="text" placeholder="Birth Name" name="birthName" />
+      <button type="submit">Submit</button>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>

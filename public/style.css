@@ -1,0 +1,48 @@
+body{
+    text-align: center;
+}
+
+.rappers{
+    border: 5px solid black;
+    width:70%;
+    margin:auto;
+}
+
+p{
+    padding:5px;
+    font-size:20px;
+}
+
+h1{
+    font-size:40px
+}
+
+h2{
+    font-size:30px
+}
+
+input{
+    width:15%;
+    height:20px;
+    font-size:20px;
+}
+
+button{
+    width:7%;
+    height:25px;
+    font-size:20px;
+    color:black;
+}
+
+td{
+    border-bottom:1px solid grey;
+    border-right:1px solid grey;
+    font-size:20px;
+    padding:5px;
+}
+
+th{
+    border-bottom:1px solid black;
+    border-right:1px solid grey;
+    font-size:20px;
+}
