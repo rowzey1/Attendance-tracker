@@ -39,7 +39,7 @@ app.get("/", (request, response) => {
     
 });
 
-app.post("/addContact", (request, response) => {
+app.post("/addStudent", (request, response) => {
   db.collection("contacts")
     .insertOne(request.body)
     .then((result) => {
@@ -49,7 +49,7 @@ app.post("/addContact", (request, response) => {
     .catch((error) => console.error(error));
 });
 
-app.put("/addContact", (request, response) => {
+app.put("/addStudent", (request, response) => {
   if (request.body.thumbUp !== undefined) {
     db.collection("contacts")
       .findOneAndUpdate(
@@ -97,15 +97,15 @@ app.put("/addContact", (request, response) => {
   }
 });
 
-app.delete("/addContact", (request, response) => {
+app.delete("/addStudent", (request, response) => {
   db.collection("contacts")
     .deleteOne({
       Name: request.body.Name,
       StudentId: request.body.StudentId,
     })
     .then((result) => {
-      console.log("Contact Deleted");
-      response.json("Contact Deleted");
+      console.log("Student Deleted");
+      response.json("Studnet Deleted");
     })
     .catch((error) => console.error(error));
 });
