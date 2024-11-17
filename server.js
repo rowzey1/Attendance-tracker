@@ -9,7 +9,7 @@ require("dotenv").config();
 let db,
   dbConnectionStr =
     "mongodb+srv://basilkalurosy:Rosy7412@rosyb.pt1jk.mongodb.net/?retryWrites=true&w=majority&appName=RosyB";
-dbName = "rap";
+dbName = "PhoneBook";
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   (client) => {
@@ -28,7 +28,7 @@ app.listen(process.env.PORT || PORT, () => {
 });
 
 app.get("/", (request, response) => {
-  db.collection("rappers")
+  db.collection("contacts")
     .find()
     .sort({thumbUp:-1}) //sort in descending order
     .toArray()
@@ -39,8 +39,8 @@ app.get("/", (request, response) => {
     
 });
 
-app.post("/addRapper", (request, response) => {
-  db.collection("rappers")
+app.post("/addContact", (request, response) => {
+  db.collection("contacts")
     .insertOne(request.body)
     .then((result) => {
       console.log("Rapper Added");
@@ -49,13 +49,13 @@ app.post("/addRapper", (request, response) => {
     .catch((error) => console.error(error));
 });
 
-app.put("/addRapper", (request, response) => {
+app.put("/addContact", (request, response) => {
   if (request.body.thumbUp !== undefined) {
-    db.collection("rappers")
+    db.collection("contacts")
       .findOneAndUpdate(
         {
-          stageName: request.body.stageName,
-          birthName: request.body.birthName,
+          Name: request.body.Name,
+          StudentId: request.body.StudentId,
         },
         {
           $set: {
@@ -73,11 +73,11 @@ app.put("/addRapper", (request, response) => {
       })
       .catch((error) => console.error(error));
   } else if (request.body.thumbDown !== undefined) {
-    db.collection("rappers")
+    db.collection("contacts")
       .findOneAndUpdate(
         {
-          stageName: request.body.stageName,
-          birthName: request.body.birthName,
+          Name: request.body.Name,
+          StudentId: request.body.StudentId,
         },
         {
           $set: {
@@ -97,15 +97,15 @@ app.put("/addRapper", (request, response) => {
   }
 });
 
-app.delete("/addRapper", (request, response) => {
-  db.collection("rappers")
+app.delete("/addContact", (request, response) => {
+  db.collection("contacts")
     .deleteOne({
-      stageName: request.body.stageName,
-      birthName: request.body.birthName,
+      Name: request.body.Name,
+      StudentId: request.body.StudentId,
     })
     .then((result) => {
-      console.log("Rapper Deleted");
-      response.json("Rapper Deleted");
+      console.log("Contact Deleted");
+      response.json("Contact Deleted");
     })
     .catch((error) => console.error(error));
 });
