@@ -7,9 +7,8 @@ const PORT = 4000;
 require("dotenv").config();
 
 let db,
-  dbConnectionStr =
-    "mongodb+srv://basilkalurosy:Rosy7412@rosyb.pt1jk.mongodb.net/?retryWrites=true&w=majority&appName=RosyB";
-dbName = "PhoneBook";
+  dbConnectionStr =process.env.DB_STRING,
+  dbName = process.env.DB_NAME;
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   (client) => {
