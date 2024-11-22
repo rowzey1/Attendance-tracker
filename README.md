@@ -1,3 +1,6 @@
+
+![Screenshot 2024-11-22 at 3 09 54 PM](https://github.com/user-attachments/assets/67487964-abc5-4d48-970d-00750d32e1b3)
+
 # Student Attendance Tracker
 
 A web application for tracking student attendance using a simple thumbs up/down system.
