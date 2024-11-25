@@ -3,7 +3,7 @@
 
 # Student Attendance Tracker
 
-A web application for tracking student attendance using a simple thumbs up/down system.
+A full stack web application that allows users to track student attendance using a simple thumbs up/down system.
 
 ## Description
 
